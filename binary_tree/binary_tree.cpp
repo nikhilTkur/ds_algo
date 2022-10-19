@@ -1,25 +1,7 @@
 #include <iostream>
 #include <queue>
 
-struct Node
-{
-    int data;
-    Node* left;
-    Node* right;
-};
-
-Node* createNode(int data)
-{
-    Node* newNode = new Node();
-    if (!newNode)
-    {
-        std::cout << "Memory Error \n";
-        return nullptr;
-    }
-    newNode->data = data;
-    newNode->left = newNode->right = nullptr;
-    return newNode;
-}
+#include "binary_tree.h"
 
 Node * InsertNode(Node* root, int data)
 {
@@ -56,6 +38,7 @@ Node * InsertNode(Node* root, int data)
             return root;
         }
     }
+    return nullptr;
 }
 
 // delete node
@@ -111,16 +94,6 @@ Node * deleteNode(Node * root , int key)
     }
 
     return root;
-}
-
-void inorder(Node* temp)
-{
-    if (!temp)
-        return;
-    
-    inorder(temp->left);
-    std::cout << temp->data << " ";
-    inorder(temp->right);
 }
 
 int main()
